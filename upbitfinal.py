@@ -21,7 +21,7 @@ while True:
                  upbit.sell_market_order("KRW-ETH",upbit.get_balance("KRW-ETH"))   
     
                 elif upbit.get_avg_buy_price("KRW-ETH")*1.05 < pyupbit.get_current_price("KRW-ETH"):# 1. 이더리움 현재 가격이 구매 가격보다 5% 높고, 
-                    if upbit.get_balance("KRW-ETC")*pyupbit.get_current_price("KRW-ETC") > (upbit.get_balance("KRW-ETH")*pyupbit.get_current_price("KRW-ETH") + upbit.get_balance("KRW-ETC")*pyupbit.get_current_price("KRW-ETC") + upbit.get_balance("KRW-BTC")*pyupbit.get_current_price("KRW-BTC") + upbit.get_balance("KRW-DOT")*pyupbit.get_current_price("KRW-DOT") + upbit.get_balance("KRW-DOGE")*pyupbit.get_current_price("KRW-DOGE") + upbit.get_balance("KRW"))*0.05: # 보유금액이 총 금액의5%보다 높은 경우, 보유분의 5% 매도
+                    if upbit.get_balance("KRW-ETH")*pyupbit.get_current_price("KRW-ETH") > (upbit.get_balance("KRW-ETH")*pyupbit.get_current_price("KRW-ETH") + upbit.get_balance("KRW-ETC")*pyupbit.get_current_price("KRW-ETC") + upbit.get_balance("KRW-BTC")*pyupbit.get_current_price("KRW-BTC") + upbit.get_balance("KRW-DOT")*pyupbit.get_current_price("KRW-DOT") + upbit.get_balance("KRW-DOGE")*pyupbit.get_current_price("KRW-DOGE") + upbit.get_balance("KRW"))*0.05: # 보유금액이 총 금액의5%보다 높은 경우, 보유분의 5% 매도
                      upbit.sell_market_order("KRW-ETH", upbit.get_balance("KRW-ETH")*0.05)  
         else : 
                 upbit.buy_market_order("KRW-ETH", upbit.get_balance("KRW")*0.05) # 1. 이더리움을 보유하지 않는 경우, 잔고의 5% 매수
