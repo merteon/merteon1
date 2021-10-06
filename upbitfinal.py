@@ -106,4 +106,4 @@ while True:
         else : 
                 upbit.buy_market_order("KRW-DOGE", upbit.get_balance("KRW")*0.05) # 1. 이도지 보유하지 않는 경우, 잔고의 5% 매수
 
-        time.sleep(1800) # 위의 명령은 매 반시간마다 적용
+        time.sleep(150) # 위의 명령은 매 2분 30초 마다 적용
