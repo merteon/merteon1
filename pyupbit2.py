@@ -85,29 +85,25 @@ upbit = pyupbit.Upbit(access, secret)
 
 
 while True:
-        # ETH = upbit.get_balance("KRW-ETH")
-        if upbit.get_balance("KRW-ETH") > 0.00001 :   
-                # ETH_target_price = upbit.get_avg_buy_price("KRW-ETH")  # 이 두개의 정의가 명확치 않으면 식으로 대체해서 하는 방법으로 생각해보자.
-                # ETH_current_price = pyupbit.get_current_price("KRW-ETH")  # 이 두개의 함수를 정의하지 않아서 생기는 문제같음.
-                if upbit.get_avg_buy_price("KRW-ETH")*0.95 > pyupbit.get_current_price("KRW-ETH"): # 2. 이더리움을 보유면서, 현재 가격이 구매 가격보다 5% 낮은 경우,  에러 - TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'
-                    # krw = upbit.get_balance("KRW")
+        if upbit.get_balance("KRW-ETC") > 0.0000000000001 :   
+                if upbit.get_avg_buy_price("KRW-ETC")*0.95 > pyupbit.get_current_price("KRW-ETC"): # 2. 이더리움 클래식을 보유면서, 현재 가격이 구매 가격보다 5% 낮은 경우,  
                     if upbit.get_balance("KRW") > 100000:
-                        upbit.buy_market_order("KRW-ETH", upbit.get_balance("KRW")*0.05)# 2-1. 잔고가 10만원 이상인 경우 잔고의 5% 매수
+                        upbit.buy_market_order("KRW-ETC", upbit.get_balance("KRW")*0.05)# 2-1. 잔고가 10만원 이상인 경우 잔고의 5% 매수
                     elif upbit.get_balance("KRW") > 50000:
-                        upbit.buy_market_order("KRW-ETH", upbit.get_balance("KRW")*0.1)# 2-2. 잔고가 5만원 이상인 경우 잔고의 10% 매수
+                        upbit.buy_market_order("KRW-ETC", upbit.get_balance("KRW")*0.1)# 2-2. 잔고가 5만원 이상인 경우 잔고의 10% 매수
                     elif upbit.get_balance("KRW") > 20000:
-                        upbit.buy_market_order("KRW-ETH", upbit.get_balance("KRW")*0.3)# 2-3. 잔고가 2만원 이상인 경우 잔고의 30% 매수
+                        upbit.buy_market_order("KRW-ETC", upbit.get_balance("KRW")*0.3)# 2-3. 잔고가 2만원 이상인 경우 잔고의 30% 매수
                     elif upbit.get_balance("KRW") > 10000:
-                        upbit.buy_market_order("KRW-ETH", upbit.get_balance("KRW")*0.9)# 2-4. 잔고가 만원 이상인 경우 잔고의 90% 매수
+                        upbit.buy_market_order("KRW-ETC", upbit.get_balance("KRW")*0.9)# 2-4. 잔고가 만원 이상인 경우 잔고의 90% 매수
   
-                elif upbit.get_avg_buy_price("KRW-ETH")*2 < pyupbit.get_current_price("KRW-ETH"):# 2. 이더리움 현재 가격이 구매 가격보다 100% 높은 경우, 전량 판매
-                 upbit.sell_market_order("KRW-ETH",upbit.get_balance("KRW-ETH"))   
+                elif upbit.get_avg_buy_price("KRW-ETC")*2 < pyupbit.get_current_price("KRW-ETC"):# 2. 이더리움 클래식 현재 가격이 구매 가격보다 100% 높은 경우, 전량 판매
+                 upbit.sell_market_order("KRW-ETC",upbit.get_balance("KRW-ETC"))   
     
-                elif upbit.get_avg_buy_price("KRW-ETH")*1.05 < pyupbit.get_current_price("KRW-ETH"):# 1. 이더리움 현재 가격이 구매 가격보다 5% 높고, 
-                    if upbit.get_balance("KRW-ETH")*pyupbit.get_current_price("KRW-ETH") > (upbit.get_balance("KRW-ETH")*ETH_current_price+upbit.get_balance("KRW"))*0.2: # 보유금액이 총 금액의 20%보다 높은 경우, 보유분의 5% 매도
-                     upbit.sell_market_order("KRW-ETH", upbit.get_balance("KRW-ETH")*0.05)  
-        else : # 이것도 작동 확인
-                upbit.buy_market_order("KRW-ETH", upbit.get_balance("KRW")*0.05) # 1. 이더리움을 보유하지 않는 경우, 잔고의 5% 매수
-        time.sleep(1800) # 위의 명령은 매 반시간마다 적용
+                elif upbit.get_avg_buy_price("KRW-ETC")*1.05 < pyupbit.get_current_price("KRW-ETC"):# 1. 이더리움 클래식 현재 가격이 구매 가격보다 5% 높고, 
+                    if upbit.get_balance("KRW-ETC")*pyupbit.get_current_price("KRW-ETC") > (upbit.get_balance("KRW-ETH")*pyupbit.get_current_price("KRW-ETH") + upbit.get_balance("KRW-ETC")*pyupbit.get_current_price("KRW-ETC") + upbit.get_balance("KRW-BTC")*pyupbit.get_current_price("KRW-BTC") + upbit.get_balance("KRW-DOT")*pyupbit.get_current_price("KRW-DOT") + upbit.get_balance("KRW-DOGE")*pyupbit.get_current_price("KRW-DOGE") + upbit.get_balance("KRW"))*0.05: # 보유금액이 총 금액의5%보다 높은 경우, 보유분의 5% 매도
+                     upbit.sell_market_order("KRW-ETC", upbit.get_balance("KRW-ETC")*0.05)  
+        else : 
+                upbit.buy_market_order("KRW-ETC", upbit.get_balance("KRW")*0.05) # 1. 이더리움 클래식을 보유하지 않는 경우, 잔고의 5% 매수
+        time.sleep(600) # 위의 명령은 매 반시간마다 적용
 
 #작동됨.
