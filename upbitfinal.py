@@ -6,7 +6,7 @@ import requests
 access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn" 
 secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8" 
 upbit = pyupbit.Upbit(access, secret)
-token = "xoxb-2589539244755-2574957952327-wmrjDcfOqqDTspFUnSEewf90"
+token = "xoxb-2589539244755-2589341049941-FpPbuqAHQzYsjhCyumeEvmHW"
 channel = "#upbitauto"
 text = "코인 자동매매가 작동중입니다."
 
