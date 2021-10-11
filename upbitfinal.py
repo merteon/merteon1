@@ -8,7 +8,7 @@ secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8"
 upbit = pyupbit.Upbit(access, secret)
 token = "xoxb-2589539244755-2574957952327-wmrjDcfOqqDTspFUnSEewf90"
 channel = "#upbitauto"
-text = "실행중입니다."
+text = "코인 자동매매가 작동중입니다."
 
 print("코인 자동매매 시작")
 tickers = ["KRW-BTC", "KRW-DOT", "KRW-ETC", "KRW-ETH", "KRW-DOGE"]
