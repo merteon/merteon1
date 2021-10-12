@@ -52,7 +52,6 @@ while True:
                      매도(ticker)  
         else : 
             매수(ticker) # 1. 해당종목을 보유하지 않는 경우, 원화 잔고의 5% 매수
-        time.sleep(150) # 위의 명령은 매 2.5분마다 적용
     bot.sendMessage(chat_id=chat_id, text="코인 자동 매매가 {0}분 동안 작동 중입니다.".format(index))
     index += 10
     time.sleep(600) # 십분에 한번씩 전송
