@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 import pyupbit
 import time
-import requests
+import telegram
 
 access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn" 
 secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8" 
 upbit = pyupbit.Upbit(access, secret)
-token = "xoxb-2589539244755-2585857622230-Swt4PS9acf3siw17Vyo31ykI"
-channel = "#upbitauto"
-text = "코인 자동매매가 작동중입니다."
-
 print("코인 자동매매 시작")
 tickers = ["KRW-BTC", "KRW-DOT", "KRW-ETC", "KRW-ETH", "KRW-DOGE"]
 KRW= upbit.get_balance("KRW")
@@ -30,6 +26,10 @@ def 풀매도(ticker, volume="잔고(ticker)"):
     return order
 def 총매수금액():
     return upbit.get_amount('ALL')
+bot = telegram.Bot(token='2044191300:AAFpQPgepqeQXBOWaIf3Djh_VZlMrf5gXbE')
+chat_id = 2086229730
+index = 0
+
 while True:
     for ticker in tickers:
         if 잔고(ticker) > 0.000000001 :   
@@ -52,8 +52,7 @@ while True:
                      매도(ticker)  
         else : 
             매수(ticker) # 1. 해당종목을 보유하지 않는 경우, 원화 잔고의 5% 매수
-        time.sleep(60) # 위의 명령은 매 1분마다 적용
-    requests.post("https://slack.com/api/chat.postMessage",
-        headers={"Authorization": "Bearer "+token},
-        data={"channel": channel,"text": text})
-    time.sleep(600) 
+        time.sleep(150) # 위의 명령은 매 2.5분마다 적용
+    bot.sendMessage(chat_id=chat_id, text="코인 자동 매매가 {0}분 동안 작동 중입니다.".format(index))
+    index += 10
+    time.sleep(600) # 십분에 한번씩 전송
