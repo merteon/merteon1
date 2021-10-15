@@ -1,1 +1,41 @@
+# -*- coding: utf-8 -*-
+import pyupbit
+import time
+import telegram
+from upbitclass import *
 
+access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn" 
+secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8" 
+upbit = pyupbit.Upbit(access, secret)
+bot = telegram.Bot(token='2044191300:AAFpQPgepqeQXBOWaIf3Djh_VZlMrf5gXbE')
+chat_id = 2086229730
+index = 0
+KRW= upbit.get_balance("KRW")
+tickers = ["KRW-DOT", "KRW-BTC", "KRW-ETC", "KRW-ETH"] 
+
+def 잔고(self, ticker) :
+    return upbit.get_balance(ticker)
+
+def 현재가(ticker):
+    return pyupbit.get_current_price(ticker) # 작동 확인 / 또한, 티커에 없는 애를 넣거나 티커에 있는 애를 별도로 지정하면, 해당 녀석만 출력 됨.
+
+def 잔고(ticker):
+    return upbit.get_balance(ticker) # 종목을 지정해야만, 정보를 불러옴
+
+def 목표가(ticker):
+    return upbit.get_avg_buy_price(ticker) # 종목을 지정해야만, 정보를 불러옴
+
+def 매수(ticker, cash=KRW):
+    order = upbit.buy_market_order(ticker, KRW*0.05)
+    return order # 작동확인, 티커만 "KRW-BCT" 형식으로 넣으면 작동함.
+
+def 매도(ticker, volume="잔고(ticker)"):
+    order = upbit.sell_market_order(ticker, 잔고(ticker)*0.05)
+    return order
+
+def 풀매도(ticker, volume="잔고(ticker)"):
+    order = upbit.sell_market_order(ticker, 잔고(ticker))
+    return order
+
+def 총매수금액():
+    return upbit.get_amount('ALL')
