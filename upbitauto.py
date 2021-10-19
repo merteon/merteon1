@@ -7,7 +7,7 @@ access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn"
 secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8" 
 upbit = pyupbit.Upbit(access, secret)
 print("코인 자동매매 시작")
-tickers = ["KRW-BTC", "KRW-DOT", "KRW-ETC", "KRW-ETH", "KRW-DOGE"]
+tickers = ["KRW-DOT", "KRW-BTC", "KRW-ETH", "KRW-EOS"]
 KRW= upbit.get_balance("KRW")
 def 현재가(ticker):
     return pyupbit.get_current_price(ticker)
