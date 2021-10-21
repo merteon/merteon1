@@ -130,3 +130,5 @@ while True:
                                 elif 목표가(ticker)*1.6<현재가(ticker):
                                     풀매도(ticker)
                                     bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 전부 익절!!".format(ticker))
+                                else :
+                                    pass
