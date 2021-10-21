@@ -50,7 +50,7 @@ def 부분매수(ticker, cash=KRW):
     return order 
 
 bot = telegram.Bot(token='2048593727:AAHCj630POvz-_pdx7dEYewBap7odNP7OTM')
-chat_id = 139062754
+chat_id = 2086229730
 
 while True:
     for ticker in tickers:
