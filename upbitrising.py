@@ -84,12 +84,7 @@ def 총매수금액():
     return upbit.get_amount('ALL')
 
 # print(총매수금액())
-# index = 0
-# def 메세지():
-#     mes = bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매매가 {0}분 동안 작동 중입니다.".format(index))
-#     global index
-#     index += 10
-#     return mes
+index = 0
 
 
 # while True:
@@ -108,6 +103,8 @@ def 총매수금액():
 #     time.sleep(900)
 
 while True:
+    bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매매가 {0}분 동안 작동 중입니다.".format(index))
+    index += 10
     for ticker in tickers:
         if 잔고(ticker) ==0:
             if old호가(ticker)*1.02 < new호가(ticker):
@@ -118,17 +115,3 @@ while True:
                 elif old호가1(ticker) < new호가(ticker):
                     부분매수(ticker)
                     bot.sendMessage(chat_id=chat_id, text="상승주 {0}를 매수하였습니다.".format(ticker))
-
-
-    
-# 급등주 매수 전략
-# 1. 거래량 상위 10개 종목 중 1초 사이에 5%의 급 상승이 있는 종목 구별
-# 2. 1번 종목 중 1초 사이에 2% 상승이 있으면 보유 현금의 10% 매수
-# 3. 2번에서 매수한 종목이 2초 사이에 5% 이상 하락시 손절
-# 4. 3번에서 손절한 종목 제외 나머지 종목은 20% 상승 시 20% 매도, 50% 이상 상승시 반 매도
-# 5. 4번에서 남은 종목 중 100% 이상 상승시 전량 매도
-# 6. 위의 명령은 0.5초마다 반복  
-
-
-
-
