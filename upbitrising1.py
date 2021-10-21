@@ -104,7 +104,7 @@ index = 0
 
 while True:
     bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매수가 {0}분 동안 작동 중입니다.".format(index))
-    index += 10
+    index += 50
     for ticker in tickers:
         if 잔고(ticker) ==0:
             if old호가(ticker)*1.02 < new호가(ticker):
