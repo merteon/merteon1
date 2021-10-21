@@ -108,7 +108,6 @@ def 총매수금액():
 #     time.sleep(900)
 
 while True:
-    메세지()
     for ticker in tickers:
         if 잔고(ticker) ==0:
             if old호가(ticker)*1.02 < new호가(ticker):
