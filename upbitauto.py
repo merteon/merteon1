@@ -49,8 +49,8 @@ def 부분매수(ticker, cash=KRW):
     order = upbit.buy_market_order(ticker, KRW*0.1)
     return order 
 
-bot = telegram.Bot(token='2044191300:AAFpQPgepqeQXBOWaIf3Djh_VZlMrf5gXbE')
-chat_id = 2086229730
+bot = telegram.Bot(token='2048593727:AAHCj630POvz-_pdx7dEYewBap7odNP7OTM')
+chat_id = 139062754
 index = 0
 
 while True:
@@ -80,6 +80,4 @@ while True:
                      bot.sendMessage(chat_id=chat_id, text="코인 {0} 을 일부 익절하였습니다.".format(ticker))
         else : 
             부분매수(ticker) # 1. 해당종목을 보유하지 않는 경우, 원화 잔고의 10% 매수
-    bot.sendMessage(chat_id=chat_id, text="코인 자동 매매가 {0}분 동안 작동 중입니다.".format(index))
-    index += 10
     time.sleep(600) # 십분에 한번씩
