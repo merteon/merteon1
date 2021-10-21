@@ -19,17 +19,17 @@ def old호가(ticker) :
     return price
       
 def new호가(ticker) :
-    time.sleep(2)
+    time.sleep(30)
     price = pyupbit.get_current_price(ticker)
     return price
 
 def old호가1(ticker) :
-    time.sleep(1)
+    time.sleep(3)
     price = pyupbit.get_current_price(ticker)
     return price
       
 def new호가1(ticker) :
-    time.sleep(2)
+    time.sleep(10)
     price = pyupbit.get_current_price(ticker)
     return price
 
@@ -83,12 +83,6 @@ def 풀매도(ticker, volume="잔고(ticker)"):
 def 총매수금액():
     return upbit.get_amount('ALL')
 
-def 메세지():
-    global index
-    me = bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매매가 약{0}분 동안 작동 중입니다.".format(index))
-    index += 4
-    return me
-
 # print(총매수금액())
 # index = 0
 # def 메세지():
@@ -125,23 +119,7 @@ while True:
                 elif old호가1(ticker) < new호가(ticker):
                     부분매수(ticker)
                     bot.sendMessage(chat_id=chat_id, text="상승주 {0}를 매수하였습니다.".format(ticker))
-        else :
-            if ticker != ("KRW-DOT"): 
-                if ticker != ("KRW-BTC"):
-                    if ticker != ("KRW-ETH"):
-                        if ticker != ("KRW-EOS"):
-                            if 목표가(ticker)*0.95 > 현재가(ticker):
-                                풀매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 매매 실패 {0}를 손절하였습니다.".format(ticker))
-                            elif 목표가(ticker)*1.15< 현재가(ticker):
-                                일부매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 일부 익절!!".format(ticker))
-                            elif 목표가(ticker)*1.35<현재가(ticker):
-                                반매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 절반 익절!!".format(ticker))
-                            elif 목표가(ticker)*1.6<현재가(ticker):
-                                풀매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 전부 익절!!".format(ticker))
+
 
     
 # 급등주 매수 전략
