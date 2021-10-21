@@ -10,7 +10,6 @@ access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn"
 secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8" 
 upbit = pyupbit.Upbit(access, secret)
 print("코인 급등주 자동매매 시작")
-index = 0
 KRW= upbit.get_balance("KRW") # 이걸로는 되는데 def로는 왜 안됄까
 tickers = pyupbit.get_tickers(fiat="KRW")
 
@@ -109,8 +108,6 @@ def 총매수금액():
 
 while True:
     time.sleep(1)
-    bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매도가 {0}초 동안 작동 중입니다.".format(index))
-    index += 9
     for ticker in tickers:
         if 잔고(ticker) !=0:
             if ticker != ("KRW-DOT"): 
