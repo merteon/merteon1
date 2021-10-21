@@ -4,7 +4,7 @@ import time
 import telegram
 
 bot = telegram.Bot(token='2048593727:AAHCj630POvz-_pdx7dEYewBap7odNP7OTM')
-chat_id = 139062754
+chat_id = 2086229730
 
 access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn" 
 secret = "xPbZVoYxzeuDkmh9aQPJlQqxn9S6sg1edb8YnEP8" 
