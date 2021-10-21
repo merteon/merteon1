@@ -19,17 +19,17 @@ def old호가(ticker) :
     return price
       
 def new호가(ticker) :
-    time.sleep(2)
+    time.sleep(30)
     price = pyupbit.get_current_price(ticker)
     return price
 
 def old호가1(ticker) :
-    time.sleep(1)
+    time.sleep(3)
     price = pyupbit.get_current_price(ticker)
     return price
       
 def new호가1(ticker) :
-    time.sleep(2)
+    time.sleep(10)
     price = pyupbit.get_current_price(ticker)
     return price
 
