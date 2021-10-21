@@ -109,6 +109,8 @@ def 총매수금액():
 
 while True:
     time.sleep(1)
+    bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매가 {0}분 동안 작동 중입니다.".format(index))
+    index += 10
     for ticker in tickers:
         if 잔고(ticker) !=0:
             if ticker != ("KRW-DOT"): 
