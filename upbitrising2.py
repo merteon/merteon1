@@ -115,24 +115,16 @@ while True:
                 if ticker != ("KRW-BTC"):
                     if ticker != ("KRW-ETH"):
                         if ticker != ("KRW-EOS"):
-                            if 목표가(ticker)*0.95 > 현재가(ticker):
-                                풀매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 매매 실패 {0}를 손절하였습니다.".format(ticker))
-                            elif 목표가(ticker)*1.15< 현재가(ticker):
-                                일부매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 일부 익절!!".format(ticker))
-                            elif 목표가(ticker)*1.35<현재가(ticker):
-                                반매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 절반 익절!!".format(ticker))
-                            elif 목표가(ticker)*1.6<현재가(ticker):
-                                풀매도(ticker)
-                                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 전부 익절!!".format(ticker))
-
-    
-# 급등주 매수 전략
-# 1. 거래량 상위 10개 종목 중 1초 사이에 5%의 급 상승이 있는 종목 구별
-# 2. 1번 종목 중 1초 사이에 2% 상승이 있으면 보유 현금의 10% 매수
-# 3. 2번에서 매수한 종목이 2초 사이에 5% 이상 하락시 손절
-# 4. 3번에서 손절한 종목 제외 나머지 종목은 20% 상승 시 20% 매도, 50% 이상 상승시 반 매도
-# 5. 4번에서 남은 종목 중 100% 이상 상승시 전량 매도
-# 6. 위의 명령은 0.5초마다 반복  
+                            if ticker !=("KRW-DOGE"):
+                                if 목표가(ticker)*0.95 > 현재가(ticker):
+                                    풀매도(ticker)
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 매매 실패 {0}를 손절하였습니다.".format(ticker))
+                                elif 목표가(ticker)*1.15< 현재가(ticker):
+                                    일부매도(ticker)
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 일부 익절!!".format(ticker))
+                                elif 목표가(ticker)*1.35<현재가(ticker):
+                                    반매도(ticker)
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 절반 익절!!".format(ticker))
+                                elif 목표가(ticker)*1.6<현재가(ticker):
+                                    풀매도(ticker)
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 전부 익절!!".format(ticker))
