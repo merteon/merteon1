@@ -115,3 +115,5 @@ while True:
                 elif old호가1(ticker) < new호가1(ticker):
                     부분매수(ticker)
                     bot.sendMessage(chat_id=chat_id, text="상승주 {0}를 매수하였습니다.".format(ticker))
+            else:
+                pass
