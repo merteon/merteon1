@@ -84,8 +84,6 @@ def 총매수금액():
     return upbit.get_amount('ALL')
 
 # print(총매수금액())
-index = 0
-
 
 # while True:
 #     # 데이터 스크래핑
@@ -103,13 +101,11 @@ index = 0
 #     time.sleep(900)
 
 while True:
-    bot.sendMessage(chat_id=chat_id, text="코인 급등주 자동 매수가 {0}분 동안 작동 중입니다.".format(index))
-    index += 50
     for ticker in tickers:
         if 잔고(ticker) ==0:
             if old호가(ticker)*1.02 < new호가(ticker):
                 bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0}를 포착하였습니다.".format(ticker))
-                if old호가1(ticker)*1.01 < new호가1(ticker):
+                if old호가1(ticker)*1.011 < new호가1(ticker):
                     지금매수(ticker)
                     bot.sendMessage(chat_id=chat_id, text="급등주 {0}를 매수하였습니다.".format(ticker))
                 elif old호가1(ticker) < new호가1(ticker):
