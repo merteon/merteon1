@@ -103,13 +103,8 @@ def 총매수금액():
 while True:
     for ticker in tickers:
         if 잔고(ticker) ==0:
-            if old호가(ticker)*1.02 < new호가(ticker):
-                bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0}를 포착하였습니다.".format(ticker))
-                if old호가1(ticker)*1.011 < new호가1(ticker):
-                    지금매수(ticker)
-                    bot.sendMessage(chat_id=chat_id, text="급등주 {0}를 매수하였습니다.".format(ticker))
-                elif old호가1(ticker) < new호가1(ticker):
-                    부분매수(ticker)
-                    bot.sendMessage(chat_id=chat_id, text="상승주 {0}를 매수하였습니다.".format(ticker))
+            if old호가(ticker)*1.018 < new호가(ticker):
+                bot.sendMessage(chat_id=chat_id, text="상승 예정주 {0}를 매수하였습니다.".format(ticker))
+                매수(ticker)
             else:
                 pass
