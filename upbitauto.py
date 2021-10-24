@@ -76,7 +76,8 @@ while True:
                 elif 목표가(ticker)*1.05 < 현재가(ticker):# 1. 해당종목 현재 가격이 구매 가격보다 5% 높고, 보유분이 전체의 5% 이상일 경우에만 해당 코인 잔고의 5% 씩 판매 
                     if 잔고(ticker)*현재가(ticker) > (총매수금액() + KRW)*0.05: 
                      매도(ticker)  
-                     bot.sendMessage(chat_id=chat_id, text="코인 {0} 을 일부 익절하였습니다.".format(ticker))
+                     bot.sendMessage(chat_id=chat_id, text="코인 {0} 을 일부 익절하였습니다.익절 금액은 {1}원 입니다.".format(ticker, (현재가(ticker) - 목표가(ticker))*잔고(ticker)*0.05263))
         else : 
             부분매수(ticker) # 1. 해당종목을 보유하지 않는 경우, 원화 잔고의 10% 매수
+            bot.sendMessage(chat_id=chat_id, text="코인 {0}를 초기 매수하였습니다. 매수 금액은 {1}원 입니다.".format(ticker, 목표가(ticker)*잔고(ticker)))
     time.sleep(600) # 십분에 한번씩
