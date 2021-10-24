@@ -117,15 +117,15 @@ while True:
                             if ticker !=("KRW-DOGE"):
                                 if 목표가(ticker)*0.95 > 현재가(ticker):
                                     풀매도(ticker)
-                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 매매 실패 {0}를 손절하였습니다.".format(ticker))
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 매매 실패 {0}를 손절하였습니다. 손실 금액은 {1} 원입니다.".format(ticker, (목표가(ticker) - 현재가(ticker))*잔고(ticker)))
                                 elif 목표가(ticker)*1.15< 현재가(ticker):
                                     일부매도(ticker)
-                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 일부 익절!!".format(ticker))
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 일부 익절!! 익절 금액은 {1}원 입니다.".format(ticker, (현재가(ticker) - 목표가(ticker))*잔고(ticker)*0.2))
                                 elif 목표가(ticker)*1.35<현재가(ticker):
                                     반매도(ticker)
-                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 절반 익절!!".format(ticker))
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 절반 익절!! 익절 금액은 {1}원 입니다.".format(ticker, (현재가(ticker) - 목표가(ticker))*잔고(ticker)*0.5))
                                 elif 목표가(ticker)*1.6<현재가(ticker):
                                     풀매도(ticker)
-                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 전부 익절!!".format(ticker))
+                                    bot.sendMessage(chat_id=chat_id, text="상승&급등주 {0} 전부 익절!! 익절 금액은 {1}원 입니다.".format(ticker, (현재가(ticker) - 목표가(ticker))*잔고(ticker)))
                                 else :
                                     pass
