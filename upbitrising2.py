@@ -3,7 +3,7 @@ import pyupbit
 import time
 import telegram
 
-bot = telegram.Bot(token='Q')
+bot = telegram.Bot(token='234')
 chat_id = 2086229730
 
 access = "tmobuBWWxvYxV9B2oW8ewuv0VsRZXEj8NIApk1Qn" 
