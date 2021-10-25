@@ -49,7 +49,7 @@ def 부분매수(ticker, cash=KRW):
     order = upbit.buy_market_order(ticker, KRW*0.1)
     return order 
 
-bot = telegram.Bot(token='Q')
+bot = telegram.Bot(token='2334')
 chat_id = 2086229730
 index = 0
 
