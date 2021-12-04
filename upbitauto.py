@@ -16,7 +16,7 @@ print("코인 자동매매 시작")
 # 6. 상승장일 경우, 자동으로 상승율과 하락율을 상승장에 맞게 조정
 # 7. 하락장일 경우, 자동으로 상승율과 하락율을 하락장에 맞게 조정
 
-tickers = ["KRW-DOT", "KRW-BTC", "KRW-ETH", "KRW-EOS", "KRW-DOGE"] 
+tickers = ["KRW-DOT", "KRW-BTC", "KRW-ETH", "KRW-EOS"] 
 
 KRW= upbit.get_balance("KRW") # 이걸로는 되는데 def로는 왜 안됄까
 
