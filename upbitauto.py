@@ -18,7 +18,7 @@ print("코인 자동매매 시작")
 
 tickers = ["KRW-DOT", "KRW-BTC", "KRW-ETH", "KRW-EOS"] 
 
-bot = telegram.Bot(token='20gh0')
+bot = telegram.Bot(token='2002300988:AAHmktc9k6NGM_MS-wQKK2FiM3ys8emrB9Q')
 chat_id = 2086229730
 index = 0
 
@@ -26,16 +26,16 @@ index = 0
 while True:
     for ticker in tickers:
         if upbit.get_balance(ticker) != 0 :   
-                if upbit.get_avg_buy_price(ticker)*0.95 > pyupbit.get_current_price(ticker): # 2. 해당종목을 보유면서, 현재 가격이 구매 가격보다 5% 낮은 경우,  
+                if upbit.get_avg_buy_price(ticker)*0.9 > pyupbit.get_current_price(ticker): # 2. 해당종목을 보유면서, 현재 가격이 구매 가격보다 10% 낮은 경우,     
+                    if upbit.get_balance("KRW") > 100000:
+                        if upbit.get_balance(ticker)*pyupbit.get_current_price(ticker) < (upbit.get_amount('ALL') + upbit.get_balance("KRW"))*0.35 :
+                         upbit.buy_market_order(ticker, upbit.get_balance("KRW")*0.05)# 2-1. 잔고가 10만원 이상이면서 보유분이 전체의 20~35% 일 경우 원화 잔고의 5% 매수
+                         bot.sendMessage(chat_id=chat_id, text="코인 {0}의 막바지 물타기 중입니다.".format(ticker))          
+                elif upbit.get_avg_buy_price(ticker)*0.95 > pyupbit.get_current_price(ticker): # 2. 해당종목을 보유면서, 현재 가격이 구매 가격보다 5% 낮은 경우,  
                     if upbit.get_balance("KRW") > 100000:
                         if upbit.get_balance(ticker)*pyupbit.get_current_price(ticker) < (upbit.get_amount('ALL') + upbit.get_balance("KRW"))*0.2:
                          upbit.buy_market_order(ticker, upbit.get_balance("KRW")*0.05)# 2-1. 잔고가 10만원 이상이면서 보유분이 전체의 20% 미만일 경우 원화 잔고의 5% 매수
                          bot.sendMessage(chat_id=chat_id, text="코인 {0} 을 물타기 중입니다.".format(ticker))
-                elif upbit.get_avg_buy_price(ticker)*0.9 > pyupbit.get_current_price(ticker): # 2. 해당종목을 보유면서, 현재 가격이 구매 가격보다 10% 낮은 경우,     
-                    if upbit.get_balance("KRW") > 100000:
-                        if (upbit.get_amount('ALL') + upbit.get_balance("KRW"))*0.2 < upbit.get_balance(ticker)*pyupbit.get_current_price(ticker) < (upbit.get_amount('ALL') + upbit.get_balance("KRW"))*0.35:
-                         upbit.buy_market_order(ticker, upbit.get_balance("KRW")*0.05)# 2-1. 잔고가 10만원 이상이면서 보유분이 전체의 20~35% 일 경우 원화 잔고의 5% 매수
-                         bot.sendMessage(chat_id=chat_id, text="코인 {0}의 막바지 물타기 중입니다.".format(ticker))
                 elif upbit.get_avg_buy_price(ticker)*1.03 > pyupbit.get_current_price(ticker): # 2. 해당종목을 보유면서, 현재 가격이 구매 가격보다 3% 높은 가격보다 낮은 경우,  
                     if upbit.get_balance("KRW") > 100000:
                         if upbit.get_balance(ticker)*pyupbit.get_current_price(ticker) < (upbit.get_amount('ALL') + upbit.get_balance("KRW"))*0.05:
@@ -53,8 +53,3 @@ while True:
             time.sleep(1)
             bot.sendMessage(chat_id=chat_id, text="코인 {0}를 초기 매수하였습니다. 매수 금액은 {1}원 입니다.".format(ticker, upbit.get_avg_buy_price(ticker)*upbit.get_balance(ticker)))
     time.sleep(600) # 십분에 한번씩
-
-
-
-
-
