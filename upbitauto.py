@@ -56,7 +56,7 @@ index = 0
 
 while True:
     for ticker in tickers:
-        if 잔고(ticker) != 0 :   
+        if 잔고(ticker) > 0.0000000001 :   
                 if 목표가(ticker)*0.95 > 현재가(ticker): # 2. 해당종목을 보유면서, 현재 가격이 구매 가격보다 5% 낮은 경우,  
                     if KRW > 100000:
                         if 잔고(ticker)*현재가(ticker) < (총매수금액() + KRW)*0.2:
