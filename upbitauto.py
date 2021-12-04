@@ -18,7 +18,7 @@ print("코인 자동매매 시작")
 
 tickers = ["KRW-DOT", "KRW-BTC", "KRW-ETH", "KRW-EOS"] 
 
-bot = telegram.Bot(token='200lk23')
+bot = telegram.Bot(token='20023')
 chat_id = 2086229730
 index = 0
 
